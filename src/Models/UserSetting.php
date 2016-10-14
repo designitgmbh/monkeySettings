@@ -85,8 +85,13 @@ class UserSetting extends Model {
      */
 	public static function set($key_string, $value, $user_id = 0)
 	{
-		if ($user_id == 0)
-			$user_id = Auth::getUser()->id;
+		if ($user_id == 0) {
+			if(Auth::getUser()) {
+				$user_id = Auth::getUser()->id;	
+			} else {
+				return null;
+			}			
+		}
 		
 		$setting = Setting::get($key_string);
 		$setting_id = $setting->id;

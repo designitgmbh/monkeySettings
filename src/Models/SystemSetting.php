@@ -2,6 +2,7 @@
 namespace Designitgmbh\MonkeySettings\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Exception;
 
 class SystemSetting extends Model {
     protected $primaryKey = 'setting_id';
